@@ -1,0 +1,14 @@
+# Sử dụng image cơ sở Java
+FROM eclipse-temurin:25-jdk
+
+# Tạo thư mục làm việc trong container
+WORKDIR /app
+
+# Sao chép tệp JAR vào container
+COPY target/eureka-server-0.0.1-SNAPSHOT.jar /app/eureka-server-0.0.1-SNAPSHOT.jar
+
+# Expose port của ứng dụng
+EXPOSE 8761
+
+# Câu lệnh để chạy ứng dụng
+ENTRYPOINT ["java", "-jar", "/app/eureka-server-0.0.1-SNAPSHOT.jar"]
